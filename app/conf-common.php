@@ -9,7 +9,7 @@ class ConfCommon {
 	}
 
 	private function getUserConf($pathConf) {
-		return parse_ini_file($pathConf);		
+		return parse_ini_file($pathConf);
 	}
 	private function getStaticConf() {
 		return array(
@@ -19,12 +19,16 @@ class ConfCommon {
 	}
 
 	private function getBootparam() {
-		// ========================================================== GETパラメータ 
-		$pathPrefix =  preg_replace('/[a-z]:\//i', '/', preg_replace('/\\\/', '/', $_SERVER['DOCUMENT_ROOT']));
+		// ========================================================== GETパラメータ
+		$pathPrefix = preg_replace('/[a-z]:\//i', '/', preg_replace('/\\\/', '/', $_SERVER['DOCUMENT_ROOT']));
+		$pathPrefix = preg_replace('/\/+$/', '', $pathPrefix);
+
 		$dirFilter = !empty($_GET['d']) ? urldecode(htmlspecialchars($_GET['d'], ENT_QUOTES, 'utf-8')) : '';
 		if(preg_match('/\.\./', $dirFilter)) { $dirFilter = ''; }
 
+		$urlPrefix = $this -> listUserConf['urlPrefix'];
 		if(empty($urlPrefix)) { $urlPrefix = (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"]; }
+		$urlPrefix = preg_replace('/\/+$/', '/', $urlPrefix . '/');
 
 		return array(
 			'pathPrefix' => $pathPrefix,

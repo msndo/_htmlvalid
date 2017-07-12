@@ -45,7 +45,7 @@ var confGlobal = {
 <tr>
 <th>No</th>
 <th>タイトル</th>
-<th><?php echo($confCommon -> listConf['urlPrefix'] . '/'); ?></th>
+<th><?php echo($confCommon -> listConf['urlPrefix']); ?></th>
 
 <th>バリデート
 <div class="section-toggle-autotrigger">
@@ -102,7 +102,7 @@ if($titleTarg == $contHtml ) { $titleTarg = 'No &lt;Title&gt;'; }
 <th class="cell-title-row"><span class="cont-title-row"><?php echo(preg_replace('/ \|.*?$/', '', $titleTarg)); ?> </span></th>
 
 <?php $ixDataCol = 1; ?>
-<?php $urlTarg = str_replace($confCommon -> listConf['pathPrefix'], $confCommon -> listConf['urlPrefix'], $file); ?>
+<?php $urlTarg = str_replace($confCommon -> listConf['pathPrefix'] . '/', $confCommon -> listConf['urlPrefix'], $file); ?>
 <td class="col-data" data-colidx="<?php echo($ixDataCol); ?>"><a href="<?php echo($urlTarg); ?>" target="_blank"><?php echo($urlTarg); ?></a></td>
 
 <td class="col-submit">

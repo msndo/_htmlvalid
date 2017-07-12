@@ -5,7 +5,7 @@
 ;listMessageIgnore[] = 'Section lacks heading. Consider using “h2”-“h6” elements to add identifying headings to all sections.'
 
 ;============================================== urlPrefixを指定しなければ自ページドメインを自動設定
-;$urlPrefix = 'http://localhost'
+;urlPrefix = 'http://localhost'
 
 ;============================================== ページタイトル
 titlePage = 'W3Cバリデータに送る'
